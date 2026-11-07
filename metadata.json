@@ -1,0 +1,8 @@
+{
+  "name": "Remix Obsidian Shield",
+  "description": "High-assurance network proxy and VPN client featuring atmospheric glassmorphism, precision telemetry, and bidirectional RTL/LTR support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

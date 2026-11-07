@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-deep-black: #020106;
+    --surface-glass: rgba(12, 7, 24, 0.75);
+    --surface-glass-active: rgba(22, 13, 44, 0.85);
+    --neon-cyan: #00F0FF;
+    --neon-blue: #38BDF8;
+    --neon-purple: #A855F7;
+    --neon-magenta: #EC4899;
+    --neon-pink: #F43F5E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+  }
+
+  body {
+    background-color: #020106;
+    color: #F1F5F9;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Vazirmatn', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  /* Monospaced telemetry numbers stay strictly LTR to preserve data integrity */
+  .telemetry-mono,
+  .font-mono,
+  [data-mono] {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-vazir {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+/* Glass Surface Layer 1 (Card & Module Deck) */
+.glass-panel {
+  background: rgba(12, 7, 24, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(168, 85, 247, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(18, 10, 36, 0.88);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 25px -4px rgba(0, 240, 255, 0.2);
+}
+
+/* Glass Surface Layer 2 (Floating Modals & Flyouts) */
+.glass-modal {
+  background: rgba(8, 4, 18, 0.92);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(168, 85, 247, 0.25);
+}
+
+/* BNDTeam Neon Luminescent Glows */
+.glow-neon-cyan {
+  box-shadow: 0 0 25px -4px rgba(0, 240, 255, 0.45), 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.glow-neon-magenta {
+  box-shadow: 0 0 25px -4px rgba(236, 72, 153, 0.45), 0 0 10px rgba(236, 72, 153, 0.2);
+}
+
+.glow-neon-purple {
+  box-shadow: 0 0 25px -4px rgba(168, 85, 247, 0.45), 0 0 10px rgba(168, 85, 247, 0.2);
+}
+
+.glow-orb-idle {
+  box-shadow: 0 0 45px -8px rgba(168, 85, 247, 0.4), 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.glow-orb-connected {
+  box-shadow: 0 0 60px -2px rgba(0, 240, 255, 0.65), 0 0 35px rgba(236, 72, 153, 0.45), inset 0 0 25px rgba(0, 240, 255, 0.3);
+}
+
+.glow-card-active {
+  box-shadow: 0 0 25px -2px rgba(0, 240, 255, 0.35), 0 0 12px rgba(168, 85, 247, 0.25);
+}
+
+/* Neon Gradient Text Utility */
+.neon-text-gradient {
+  background: linear-gradient(135deg, #00F0FF 0%, #A855F7 50%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-btn-gradient {
+  background: linear-gradient(135deg, #00F0FF 0%, #A855F7 50%, #EC4899 100%);
+}
+
+/* Rotating connecting ring animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2.5s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3.2s ease-in-out infinite;
+}
+
+/* Custom scrollbars for telemetry lists */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 2, 12, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
